@@ -1,9 +1,12 @@
 import Image from "next/image";
+import CheckBoxTheme from "./CheckBoxTheme";
+import useThemeStore from "@/stores/themeStore";
 
 export default function Navbar() {
+  const { theme } = useThemeStore();
   return (
     <>
-      <div className="navbar bg-base-100" data-theme="light">
+      <div className="navbar bg-base-100" data-theme={theme}>
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -42,7 +45,7 @@ export default function Navbar() {
           <a className="btn btn-ghost normal-case text-xl">Pokedex</a>
         </div>
         <div className="navbar-end">
-          <button onClick={() => {console.log("Sobre")}}>Sobre</button>
+          <CheckBoxTheme />
           <button className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
